@@ -175,3 +175,26 @@ mysql> select * from AddressBook;
 4 rows in set (0.00 sec)
 
 mysql>
+
+//UC10
+ select * from AddressBook;
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+--------------------+----------+
+| id | first_name   | last_name | address            | city      | state       | zip    | phone_number | email                     | name               | type     |
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+--------------------+----------+
+|  1 | Gaurav       | Dhande    | 09 Jay ashtvinayak | Dombivli  | Maharashtra | 421202 | 9619207573   | gpdhande12@gmail.com      | Gaurav Dhande      | Personal |
+|  2 | Tejas        | Dhande    | 09 Jay ashtvinayak | Dombivli  | Maharashtra | 421202 | 9773204383   | tpdhande27@gmail.com      | Tejas Dhande       | Family   |
+|  4 | Rohit        | Jadhav    | 09 Jay om bldg     | pune      | Maharashtra | 410504 | 7875678797   | jadhavrohit3004@gmail.com | Rohit Jadhav       | Friends  |
+|  5 | Satyaprakash | Singh     | dipex kiran        | Prayagraj | UP          | 410507 | 7875722613   | satya24@gmail.com         | Satyaprakash Singh | Friends  |
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+--------------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT type, COUNT(*) AS contact_count
+    -> FROM AddressBook
+    -> WHERE type = 'Friends'
+    -> GROUP BY type;
++---------+---------------+
+| type    | contact_count |
++---------+---------------+
+| Friends |             2 |
++---------+---------------+
+1 row in set (0.00 sec)
