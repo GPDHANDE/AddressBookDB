@@ -96,3 +96,15 @@ mysql> SELECT *
 |  2 | Tejas      | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 9773204383   | tpdhande27@gmail.com |
 +----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
 2 rows in set (0.00 sec)
+
+//UC7
+ SELECT city, state, COUNT(*) AS contact_count
+    -> FROM AddressBook
+    -> GROUP BY city, state
+    -> ORDER BY contact_count DESC;
++----------+-------------+---------------+
+| city     | state       | contact_count |
++----------+-------------+---------------+
+| Dombivli | Maharashtra |             2 |
++----------+-------------+---------------+
+1 row in set (0.00 sec)
