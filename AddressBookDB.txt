@@ -1,6 +1,26 @@
+UC1
+
 mysql> CREATE DATABASE AddressBookDB;
 Query OK, 1 row affected (0.01 sec)
 
 mysql> USE AddressBookDB;
 Database changed
-mysql>
+
+------------------------------------------------------------------------------------
+//UC2
+mysql> -- Create AddressBook Table
+mysql> CREATE TABLE AddressBook (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique identifier for each record
+    ->     first_name VARCHAR(50) NOT NULL,   -- First name of the person
+    ->     last_name VARCHAR(50) NOT NULL,    -- Last name of the person
+    ->     address VARCHAR(100) NOT NULL,     -- Street address
+    ->     city VARCHAR(50) NOT NULL,         -- City
+    ->     state VARCHAR(50) NOT NULL,        -- State
+    ->     zip VARCHAR(20) NOT NULL,          -- ZIP code
+    ->     phone_number VARCHAR(20),          -- Phone number
+    ->     email VARCHAR(100) UNIQUE          -- Email address (must be unique)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from AddressBook;
+Empty set (0.00 sec)
