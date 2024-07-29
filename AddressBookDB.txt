@@ -39,3 +39,21 @@ mysql> select * from AddressBook;
 |  1 | Gaurav     | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 7977139767   | gpdhande12@gmail.com |
 +----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
 1 row in set (0.00 sec)
+
+//UC4
+
+ UPDATE AddressBook
+    -> SET  phone_number= 9619207573
+    -> WHERE first_name='Gaurav';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
+| id | first_name | last_name | address            | city     | state       | zip    | phone_number | email
+   |
++----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
+|  1 | Gaurav     | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 9619207573   | gpdhande12@gmail.com |
++----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
+1 row in set (0.00 sec)
+
