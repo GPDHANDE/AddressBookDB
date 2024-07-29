@@ -56,29 +56,3 @@ mysql> select * from AddressBook;
 |  1 | Gaurav     | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 9619207573   | gpdhande12@gmail.com |
 +----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
 1 row in set (0.00 sec)
-
-//UC5
-
- select * from AddressBook;
-+----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
-| id | first_name | last_name | address            | city     | state       | zip    | phone_number | email
-   |
-+----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
-|  1 | Gaurav     | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 9619207573   | gpdhande12@gmail.com |
-|  2 | Tejas      | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 9773204383   | tpdhande27@gmail.com |
-|  3 | Suraj      | gupta     | 07 omprakash       | kanpur   | UP          | 442298 | 7977139866   | suraj12@gmail.com    |
-
-mysql> DELETE FROM AddressBook
-    -> WHERE first_name = 'suraj' AND last_name = 'gupta';
-Query OK, 1 row affected (0.01 sec)
-
-mysql>
-mysql> select * from AddressBook;
-+----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
-| id | first_name | last_name | address            | city     | state       | zip    | phone_number | email
-   |
-+----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
-|  1 | Gaurav     | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 9619207573   | gpdhande12@gmail.com |
-|  2 | Tejas      | Dhande    | 09 Jay ashtvinayak | Dombivli | Maharashtra | 421202 | 9773204383   | tpdhande27@gmail.com |
-+----+------------+-----------+--------------------+----------+-------------+--------+--------------+----------------------+
-2 rows in set (0.00 sec)
