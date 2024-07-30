@@ -1,4 +1,4 @@
-UC1
+//UC1
 
 mysql> CREATE DATABASE AddressBookDB;
 Query OK, 1 row affected (0.01 sec)
