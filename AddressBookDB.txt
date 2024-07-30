@@ -198,27 +198,3 @@ mysql> SELECT type, COUNT(*) AS contact_count
 | Friends |             2 |
 +---------+---------------+
 1 row in set (0.00 sec)
-
-//UC11
-INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email, name, type)
-    -> VALUES ('Shivam', 'Devare', '789 Cidco', 'Tilak nagar', 'Maharashtra', '4400703', '9773208343', 'shivamdevare21@gmail.com', 'Shivam Devare', 'Profession');
-Query OK, 1 row affected (0.44 sec)
-
-mysql> INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email, name, type)
-    -> VALUES ('Shivam', 'Devare', '789 Cidco', 'Tilak nagar', 'Maharashtra', '4400703', '9773208343', 'shivamdevare21@gmail.com', 'Shivam Devare', 'Friend');
-ERROR 1062 (23000): Duplicate entry 'shivamdevare21@gmail.com' for key 'addressbook.email'
-mysql> INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email, name, type)
-    -> VALUES ('Shivam', 'Devare', '789 Cidco', 'Tilak nagar', 'Maharashtra', '4400703', '9773208343', 'shivamdevare333@gmail.com', 'Shivam Devare', 'Friend');
-Query OK, 1 row affected (0.01 sec)
-
-mysql>
-mysql> SELECT name, type
-    -> FROM AddressBook
-    -> WHERE first_name = 'Shivam' AND last_name = 'Devare';
-+---------------+------------+
-| name          | type       |
-+---------------+------------+
-| Shivam Devare | Profession |
-| Shivam Devare | Friend     |
-+---------------+------------+
-2 rows in set (0.00 sec)
