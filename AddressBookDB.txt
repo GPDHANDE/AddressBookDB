@@ -200,25 +200,57 @@ mysql> SELECT type, COUNT(*) AS contact_count
 1 row in set (0.00 sec)
 
 //UC11
-INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email, name, type)
-    -> VALUES ('Shivam', 'Devare', '789 Cidco', 'Tilak nagar', 'Maharashtra', '4400703', '9773208343', 'shivamdevare21@gmail.com', 'Shivam Devare', 'Profession');
-Query OK, 1 row affected (0.44 sec)
+ select * from Type;
++----+-----------+
+| id | type_name |
++----+-----------+
+|  1 | Friends   |
+|  2 | Family    |
+|  3 | Personal  |
++----+-----------+
+3 rows in set (0.00 sec)
+alter table AddressBook
+    ->  add column type int(1),
+    ->  add foreign key(type) references Type(id);
+Query OK, 4 rows affected, 1 warning (0.06 sec)
+Records: 4  Duplicates: 0  Warnings: 1
 
-mysql> INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email, name, type)
-    -> VALUES ('Shivam', 'Devare', '789 Cidco', 'Tilak nagar', 'Maharashtra', '4400703', '9773208343', 'shivamdevare21@gmail.com', 'Shivam Devare', 'Friend');
-ERROR 1062 (23000): Duplicate entry 'shivamdevare21@gmail.com' for key 'addressbook.email'
-mysql> INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email, name, type)
-    -> VALUES ('Shivam', 'Devare', '789 Cidco', 'Tilak nagar', 'Maharashtra', '4400703', '9773208343', 'shivamdevare333@gmail.com', 'Shivam Devare', 'Friend');
+mysql> select * from AddressBook;
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+------+
+| id | first_name   | last_name | address            | city      | state       | zip    | phone_number | email                     | type |
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+------+
+|  1 | Gaurav       | Dhande    | 09 Jay ashtvinayak | Dombivli  | Maharashtra | 421202 | 9619207573   | gpdhande12@gmail.com      | NULL |
+|  2 | Tejas        | Dhande    | 09 Jay ashtvinayak | Dombivli  | Maharashtra | 421202 | 9773204383   | tpdhande27@gmail.com      | NULL |
+|  4 | Rohit        | Jadhav    | 09 Jay om bldg     | pune      | Maharashtra | 410504 | 7875678797   | jadhavrohit3004@gmail.com | NULL |
+|  5 | Satyaprakash | Singh     | dipex kiran        | Prayagraj | UP          | 410507 | 7875722613   | satya24@gmail.com         | NULL |
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+------+
+4 rows in set (0.00 sec)
+
+mysql> update AddressBook set type = 3 where first_name = 'Gaurav';
 Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update AddressBook set type = 2 where first_name = 'Tejas';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update AddressBook set type = 1 where first_name = 'Rohit';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update AddressBook set type = 1 where first_name = 'Satyaprakash';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+------+
+| id | first_name   | last_name | address            | city      | state       | zip    | phone_number | email                     | type |
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+------+
+|  1 | Gaurav       | Dhande    | 09 Jay ashtvinayak | Dombivli  | Maharashtra | 421202 | 9619207573   | gpdhande12@gmail.com      |    3 |
+|  2 | Tejas        | Dhande    | 09 Jay ashtvinayak | Dombivli  | Maharashtra | 421202 | 9773204383   | tpdhande27@gmail.com      |    2 |
+|  4 | Rohit        | Jadhav    | 09 Jay om bldg     | pune      | Maharashtra | 410504 | 7875678797   | jadhavrohit3004@gmail.com |    1 |
+|  5 | Satyaprakash | Singh     | dipex kiran        | Prayagraj | UP          | 410507 | 7875722613   | satya24@gmail.com         |    1 |
++----+--------------+-----------+--------------------+-----------+-------------+--------+--------------+---------------------------+------+
+4 rows in set (0.00 sec)
 
 mysql>
-mysql> SELECT name, type
-    -> FROM AddressBook
-    -> WHERE first_name = 'Shivam' AND last_name = 'Devare';
-+---------------+------------+
-| name          | type       |
-+---------------+------------+
-| Shivam Devare | Profession |
-| Shivam Devare | Friend     |
-+---------------+------------+
-2 rows in set (0.00 sec)
